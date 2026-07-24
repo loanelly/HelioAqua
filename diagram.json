@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "author": "LNL-Engineering",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp32", "top": 120, "left": 0, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled", "top": -40, "left": -50, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_reset",
+      "top": -20,
+      "left": 150,
+      "attrs": { "color": "green", "label": "Reset Filter" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb_status",
+      "top": 40,
+      "left": -150,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_tds",
+      "top": 360,
+      "left": -160,
+      "attrs": { "label": "1. DATChIK TDS (ZhESTKOSTb)" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_turb",
+      "top": 360,
+      "left": 160,
+      "attrs": { "label": "2. MUTNOSTb (MIKROPLASTIK)" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_solar",
+      "top": 363.5,
+      "left": -0.2,
+      "attrs": { "label": "3. SOLNEChNAYa BATAR_Ya" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 441.6,
+      "left": 0,
+      "attrs": { "text": "Solar Batt" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 441.6,
+      "left": -144,
+      "attrs": { "text": "PPM" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 441.6,
+      "left": 163.2,
+      "attrs": { "text": "Filter Res" }
+    }
+  ],
+  "connections": [
+    [ "esp32:GND.1", "oled:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "oled:VCC", "red", [ "v0" ] ],
+    [ "esp32:D21", "oled:SDA", "blue", [ "v0" ] ],
+    [ "esp32:D22", "oled:SCL", "yellow", [ "v0" ] ],
+    [ "esp32:GND.2", "pot_tds:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "pot_tds:VCC", "red", [ "v0" ] ],
+    [ "pot_tds:SIG", "esp32:D34", "green", [ "v0" ] ],
+    [ "esp32:GND.2", "pot_turb:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "pot_turb:VCC", "red", [ "v0" ] ],
+    [ "pot_turb:SIG", "esp32:D35", "purple", [ "v0" ] ],
+    [ "esp32:GND.2", "pot_solar:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "pot_solar:VCC", "red", [ "v0" ] ],
+    [ "pot_solar:SIG", "esp32:D32", "orange", [ "v0" ] ],
+    [ "esp32:GND.1", "btn_reset:1.GND", "black", [ "v0" ] ],
+    [ "btn_reset:2.GND", "esp32:D13", "white", [ "v0" ] ],
+    [ "rgb_status:C", "esp32:GND.2", "black", [ "v0" ] ],
+    [ "rgb_status:R", "esp32:D4", "red", [ "v0" ] ],
+    [ "rgb_status:G", "esp32:D2", "green", [ "v0" ] ],
+    [ "rgb_status:B", "esp32:D15", "blue", [ "v0" ] ],
+    [ "rgb_status:COM", "esp32:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
