@@ -1,0 +1,33 @@
+# === Специфика сборки ESP32 (PlatformIO / ESP-IDF / Arduino) ===
+.pio/
+.pioenvs/
+.piolibdeps/
+build/
+latex/
+html/
+sdkconfig
+sdkconfig.old
+dependencies.lock
+managed_components/
+
+# === Секреты и конфигурация (Защита данных) ===
+*.env
+*.private
+secret.h
+credentials.txt
+config_private.h
+
+# === Файлы среды разработки (VS Code / JetBrains / Windows) ===
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# === Системные файлы ===
+.DS_Store
+Thumbs.db
